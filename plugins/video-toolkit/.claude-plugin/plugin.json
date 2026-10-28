@@ -1,0 +1,9 @@
+{
+  "name": "video-toolkit",
+  "description": "Turn a screen recording into a captioned, watermarked tutorial video with voiceover, subtitles and a step guide.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Rodney Lungayan",
+    "url": "https://www.rodneylungayan.com/"
+  }
+}

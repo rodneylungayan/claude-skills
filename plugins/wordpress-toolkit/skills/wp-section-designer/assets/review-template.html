@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{SECTION NAME}} – 3 Design Options</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Swap fonts for the client's real ones (read from the site, see SKILL.md step 2) -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+/* =========================================================
+   SITE TOKENS – replace with the values extracted from the client site
+   ========================================================= */
+:root{
+  --kn-teal:#045F83;
+  --kn-teal-dark:#034A67;
+  --kn-slate:#3D495A;
+  --kn-sky:#79CEE8;
+  --kn-sky-tint:#EEF8FB;
+  --kn-silver:#E9E9E9;
+  --kn-line:#E4E4E4;
+  --kn-radius:5px;
+}
+
+/* ---------- review page chrome (not part of the design) ---------- */
+*{box-sizing:border-box}
+body{margin:0;background:#f1f3f5;font-family:"Source Sans 3",sans-serif;color:var(--kn-slate)}
+.review-bar{position:sticky;top:0;z-index:5;background:var(--kn-teal);color:#fff;padding:12px 20px;display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center;justify-content:space-between}
+.review-bar strong{font-weight:600;letter-spacing:.02em}
+.review-bar .toggle{display:flex;gap:8px;flex-wrap:wrap}
+.review-bar button{font:600 14px "Source Sans 3",sans-serif;text-transform:uppercase;letter-spacing:.04em;background:transparent;color:#fff;border:1px solid rgba(255,255,255,.55);border-radius:var(--kn-radius);padding:10px 14px;min-height:44px;cursor:pointer}
+.review-bar button[aria-pressed="true"]{background:#fff;color:var(--kn-teal)}
+.review-bar button:focus-visible{outline:3px solid var(--kn-sky);outline-offset:2px}
+.review-wrap{max-width:1000px;margin:0 auto;padding:32px 16px 64px}
+.review-head h1{font:700 30px/1.2 "Playfair Display",serif;color:var(--kn-teal);margin:0 0 8px}
+.review-head p{margin:0 0 32px;max-width:70ch;line-height:1.55}
+.stage{margin:0 0 56px}
+.stage-label{display:flex;align-items:baseline;gap:12px;margin:0 0 4px}
+.stage-label span{display:inline-grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--kn-slate);color:#fff;font:700 15px "Source Sans 3",sans-serif}
+.stage-label h2{margin:0;font:600 20px "Playfair Display",serif;color:var(--kn-slate)}
+.stage-desc{margin:0 0 14px 44px;font-size:15px;line-height:1.5;color:#55616f}
+.page-sim{background:#fff;border:1px solid var(--kn-line);border-radius:var(--kn-radius);padding:32px 16px}
+/* .frame is the simulated content column. container-type lets the designs respond to the COLUMN width,
+   not the browser width (the real content column is often only ~575–650px because of a sidebar). */
+.frame{container-type:inline-size;width:100%;max-width:var(--frame-w,640px);margin:0 auto;transition:max-width .25s ease}
+.impl{margin:14px 0 0 44px;font-size:14px;line-height:1.5;color:#55616f}
+.impl b{color:var(--kn-slate)}
+
+/* =========================================================
+   SECTION STYLES – write one scoped block per version:
+   .px-x--a {...}   .px-x--b {...}   .px-x--c {...}
+   Use @container (min-width:…) / (max-width:…) for responsive rules.
+   Always add @media (prefers-reduced-motion:reduce) for any transition/transform.
+   ========================================================= */
+
+</style>
+</head>
+<body>
+
+<div class="review-bar">
+  <strong>{{SECTION NAME}} – design review (content unchanged)</strong>
+  <div class="toggle" role="group" aria-label="Preview width">
+    <button type="button" data-w="640" aria-pressed="true">Content column · 640px</button>
+    <button type="button" data-w="375" aria-pressed="false">Mobile · 375px</button>
+    <button type="button" data-w="860" aria-pressed="false">Wide · 860px</button>
+  </div>
+</div>
+
+<main class="review-wrap">
+  <header class="review-head">
+    <h1>3 design versions</h1>
+    <p>Every word is exactly as supplied, in the same order. Only layout, colour and emphasis change. {{Note any stand-in images / assumed links here.}}</p>
+  </header>
+
+  <!-- ============ VERSION A ============ -->
+  <section class="stage" aria-labelledby="va">
+    <div class="stage-label"><span>A</span><h2 id="va">{{Name A}}</h2></div>
+    <p class="stage-desc">{{One-sentence description of the look and mood.}}</p>
+    <div class="page-sim"><div class="frame">
+
+      <!-- section markup A -->
+
+    </div></div>
+    <p class="impl"><b>Gutenberg build:</b> {{which core blocks, what is native vs template CSS}}</p>
+  </section>
+
+  <!-- ============ VERSION B ============ -->
+  <section class="stage" aria-labelledby="vb">
+    <div class="stage-label"><span>B</span><h2 id="vb">{{Name B}}</h2></div>
+    <p class="stage-desc">{{…}}</p>
+    <div class="page-sim"><div class="frame">
+
+      <!-- section markup B -->
+
+    </div></div>
+    <p class="impl"><b>Gutenberg build:</b> {{…}}</p>
+  </section>
+
+  <!-- ============ VERSION C ============ -->
+  <section class="stage" aria-labelledby="vc">
+    <div class="stage-label"><span>C</span><h2 id="vc">{{Name C}}</h2></div>
+    <p class="stage-desc">{{…}}</p>
+    <div class="page-sim"><div class="frame">
+
+      <!-- section markup C -->
+
+    </div></div>
+    <p class="impl"><b>Gutenberg build:</b> {{…}}</p>
+  </section>
+</main>
+
+<script>
+(function(){
+  var btns=document.querySelectorAll('.review-bar button');
+  btns.forEach(function(b){
+    b.addEventListener('click',function(){
+      btns.forEach(function(x){x.setAttribute('aria-pressed','false')});
+      b.setAttribute('aria-pressed','true');
+      document.documentElement.style.setProperty('--frame-w',b.dataset.w+'px');
+    });
+  });
+})();
+</script>
+</body>
+</html>

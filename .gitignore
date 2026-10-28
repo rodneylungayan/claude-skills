@@ -1,0 +1,10 @@
+# Local, never published
+*.local
+*.local.*
+.denylist.plain.txt
+profiles/
+node_modules/
+.DS_Store
+Thumbs.db
+__pycache__/
+*.pyc

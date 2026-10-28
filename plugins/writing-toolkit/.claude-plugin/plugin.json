@@ -1,0 +1,9 @@
+{
+  "name": "writing-toolkit",
+  "description": "Draft website and email copy, LinkedIn posts and comments, and job applications in a plain, human voice.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Rodney Lungayan",
+    "url": "https://www.rodneylungayan.com/"
+  }
+}

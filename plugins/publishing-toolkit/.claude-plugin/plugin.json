@@ -1,0 +1,9 @@
+{
+  "name": "publishing-toolkit",
+  "description": "Turn a conversation into a finished blog post and publish it, with generated cover art and a social follow-up.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Rodney Lungayan",
+    "url": "https://www.rodneylungayan.com/"
+  }
+}

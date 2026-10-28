@@ -1,0 +1,9 @@
+{
+  "name": "productivity-toolkit",
+  "description": "Compare two versions of any text, hand a working session over to the next chat, and log tasks to ClickUp.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Rodney Lungayan",
+    "url": "https://www.rodneylungayan.com/"
+  }
+}
