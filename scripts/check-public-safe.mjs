@@ -191,7 +191,44 @@ function scanText(rel, text) {
 }
 
 if (process.argv.includes('--stdin')) {
-  scanText('<stdin>', readFileSync(0, 'utf8'));
+  /**
+   * Reading `git log -p` as one blob flags git's own metadata — commit SHAs,
+   * the author line, the hash list — and loses the filename, so the rules that
+   * depend on which file a line is in cannot apply. Parse the diff instead:
+   * scan only added lines, attributed to the file they were added to.
+   */
+  const input = readFileSync(0, 'utf8').split(/\r?\n/);
+  let file = '<stdin>';
+  const added = new Map();
+  const identities = new Set();
+
+  for (const line of input) {
+    const header = line.match(/^\+\+\+ b\/(.+)$/);
+    if (header) {
+      file = header[1];
+      continue;
+    }
+    if (/^(---|diff |index |@@|new file|deleted file|similarity|rename )/.test(line)) continue;
+    const author = line.match(/^Author:\s*(.+)$/);
+    if (author) {
+      identities.add(author[1].trim());
+      continue;
+    }
+    if (line.startsWith('+')) {
+      if (!added.has(file)) added.set(file, []);
+      added.get(file).push(line.slice(1));
+    }
+  }
+
+  for (const [path, lines] of added) {
+    if (path === 'scripts/denylist.sha256.txt') continue;
+    scanText(path, lines.join('\n'));
+  }
+
+  if (identities.size) {
+    console.log('commit identities seen (not a failure, but they are public):');
+    for (const id of identities) console.log(`  ${id}`);
+  }
 } else {
   for (const file of walk(ROOT)) {
     const rel = relative(ROOT, file).split(sep).join('/');
