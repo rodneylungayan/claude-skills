@@ -31,13 +31,23 @@ const SLUG = /^[a-z0-9]+(-[a-z0-9]+)*$/;
  * Minimal YAML frontmatter reader: enough for `key: value` and `key: "value"`,
  * which is all a SKILL.md header needs. Avoids a dependency for four fields.
  */
-function frontmatter(text) {
+function frontmatter(raw) {
+  /**
+   * Normalise line endings first. On a CRLF checkout — which is what Windows
+   * gives you by default — the closing `---` is preceded by `\r\n`, so the
+   * last frontmatter line keeps a trailing `\r`. JavaScript's `.` and `$` do
+   * not cross a carriage return, so that line silently fails to match and the
+   * field reads as missing. It is always `description`, because that is the
+   * last line, which made it look like a content problem rather than a
+   * parsing one.
+   */
+  const text = raw.replace(/\r\n?/g, '\n');
   if (!text.startsWith('---')) return null;
   const end = text.indexOf('\n---', 3);
   if (end === -1) return null;
   const body = text.slice(3, end);
   const out = {};
-  for (const line of body.split(/\r?\n/)) {
+  for (const line of body.split('\n')) {
     const m = line.match(/^([A-Za-z0-9_-]+):\s*(.*)$/);
     if (!m) continue;
     let v = m[2].trim();

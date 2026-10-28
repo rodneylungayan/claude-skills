@@ -145,8 +145,10 @@ function* walk(dir) {
 
 const findings = [];
 
-function scanText(rel, text) {
-  text.split(/\r?\n/).forEach((line, idx) => {
+function scanText(rel, raw) {
+  // Normalise first: a stray `\r` left on a line stops `$`-anchored patterns
+  // matching, so a CRLF checkout would quietly scan less than an LF one.
+  raw.replace(/\r\n?/g, '\n').split('\n').forEach((line, idx) => {
     if (ALLOW_PRAGMA.test(line)) return;
     const lineNo = idx + 1;
 

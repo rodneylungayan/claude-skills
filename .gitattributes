@@ -1,0 +1,14 @@
+# Check every text file out with LF, whatever the platform. Without this a
+# Windows clone gets CRLF, and anything that anchors a regex with $ then reads
+# a trailing \r as part of the line.
+* text=auto eol=lf
+
+# Leave binaries alone.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+*.mp4 binary
