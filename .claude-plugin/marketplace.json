@@ -21,13 +21,16 @@
     {
       "name": "productivity-toolkit",
       "source": "./plugins/productivity-toolkit",
-      "description": "Compare two versions of any text, hand a working session over to the next chat, and log tasks to ClickUp.",
+      "description": "Compare two versions of any text, hand a working session over to the next chat, log tasks to ClickUp, and build monthly WordPress maintenance reports from MainWP.",
       "category": "productivity",
       "tags": [
         "diff",
         "handover",
         "clickup",
-        "tasks"
+        "tasks",
+        "mainwp",
+        "wordpress",
+        "reports"
       ]
     },
     {
