@@ -35,6 +35,7 @@ Install only the plugins you want — each is independent. Full instructions, in
 | `content-diff` | Exact diff of two versions of anything, from a real script rather than from reading — side-by-side, unified, change index, merge |
 | `session-handover` | The current session as one copy-paste block, so the next chat can carry on |
 | `clickup-task-manager` | Well-formed ClickUp tasks from a wizard or pasted notes, with the workspace discovered at run time |
+| `site-update-report` | Audit-only monthly WordPress maintenance PDF plus a client email, built from a site's update data in [MainWP](https://mainwp.com/), the WordPress management dashboard |
 
 ### `web-audit-toolkit`
 
