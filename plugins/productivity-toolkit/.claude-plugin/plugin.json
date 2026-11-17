@@ -1,7 +1,7 @@
 {
   "name": "productivity-toolkit",
-  "description": "Compare two versions of any text, hand a working session over to the next chat, and log tasks to ClickUp.",
-  "version": "1.0.0",
+  "description": "Compare two versions of any text, hand a working session over to the next chat, log tasks to ClickUp, and build monthly WordPress maintenance reports from MainWP.",
+  "version": "1.1.0",
   "author": {
     "name": "Rodney Lungayan",
     "url": "https://www.rodneylungayan.com/"
